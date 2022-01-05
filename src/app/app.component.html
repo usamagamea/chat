@@ -1,0 +1,153 @@
+<table>
+  
+    <tr>
+      <td>
+        <h1>{{title}}</h1>
+      </td>
+    </tr>
+
+
+    <tr *ngFor="let element of showMessages; let i =index">
+      <td style="float: left;" (click)="showRes('msg',i)" >
+        <div style="cursor: pointer;">
+          {{element.message}} 
+        </div>
+      </td>     
+      <td style="float: right;">
+        <div style="cursor: pointer;">
+          {{element.response}} 
+        </div>
+      </td>      
+    </tr>
+    <tr>
+      <td colspan="2">================= next 2 </td>
+    </tr>
+    <tr *ngFor="let row of qData; let i =index">
+      <td style="float: left;" (click)="testAction(row,i)" >
+        <div style="cursor: pointer;">
+          {{row?.message}} 
+        </div>
+      </td>     
+      <!-- <td style="float: right;" *ngIf="subDisplay[i]">
+        <div style="cursor: pointer;">
+          {{element.response}} 
+        </div>
+      </td>       -->
+    </tr>
+ 
+
+    
+</table>
+
+<!-- <button  (click)="getResponse(msg)">send</button> -->
+
+
+<br>
+<br>
+<br>
+
+
+<table>
+  
+  <tr>
+    <td>
+      <h1>{{title}}</h1>
+    </td>
+  </tr>
+
+
+  <tr *ngFor="let element of  msg; let i =index">
+    <td style="float: left;" (click)="showRes('msg',i)" >
+      <div style="cursor: pointer;">
+        {{element.message}} 
+      </div>
+    </td>     
+    <td style="float: right;" *ngIf="subDisplay[i]">
+      <div style="cursor: pointer;">
+        {{element.response}} 
+      </div>
+    </td>      
+  </tr>
+
+  <ng-container *ngIf="subDisplay[0]">
+    <tr *ngFor="let element of  sub1;let i =index">
+      <td style="float: left;" (click)="showRes('sub1',i)" >
+        <div style="cursor: pointer;">
+          {{element.message}} 
+        </div>
+      </td>     
+      <td style="float: right;" *ngIf="sub1Display[i]">
+        <div style="cursor: pointer;">
+          {{element.response}} 
+        </div>
+      </td>      
+    </tr>
+
+  </ng-container>
+<!-- 
+  <!-- <ng-container *ngIf="subDisplay[0]">
+    <tr *ngFor="let element of  sub2 ;let i =index">
+      <td style="float: left;" (click)="showRes('sub2',i)" >
+        <div style="cursor: pointer;">
+          {{element.message}} 
+        </div>
+      </td>     
+      <td style="float: right;" *ngIf="sub2Display[i]">
+        <div style="cursor: pointer;">
+          {{element.response}} 
+        </div>
+      </td>      
+    </tr>
+
+  </ng-container> -->
+
+   <ng-container *ngIf="subDisplay[0]">
+    <tr *ngFor="let element of sub3; let i =index">
+      <td style="float: left;" (click)="showRes('sub3',i)" >
+        <div style="cursor: pointer;">
+          {{element.message}} 
+        </div>
+      </td>     
+      <td style="float: right;" *ngIf="sub3Display[i]">
+        <div style="cursor: pointer;">
+          {{element.response}} 
+        </div>
+      </td>      
+    </tr>
+
+  </ng-container>
+
+   <!-- <tr *ngFor="let element of  msg;let i =index">
+    <td  *ngIf="chatMsg.length<=0" >
+      <div  (click)="getResponse(element.message)"  style="cursor: pointer;">
+        {{element.message}} 
+      </div>
+    </td>      
+  </tr> -->
+   
+  <!-- <tr *ngFor="let msg of chatMsg">
+    <div style="text-align: start;"> {{msg?.message}} </div>
+    <div style="text-align:end;"> {{msg?.response}} </div>
+  </tr> -->
+  <!-- <tr *ngFor="let sup of getListOfSub" style="cursor: pointer;">
+   
+    <div   (click)="getResponse(sup.message)"style="text-align: start;">
+       {{sup?.message}} 
+      </div>
+     <div (click)="getResponse(sup.response)" style="text-align: end;">
+    {{sup?.response}}
+    </div>  
+  </tr> -->
+ 
+  <tr *ngFor="let msg of obj ">
+    <div style="text-align: end;"> {{msg.message}}</div>
+   
+  </tr>
+
+    <td>
+      <input type="text"  (keyup.enter)="addMsg(task.value)" #task />
+    </td>
+  
+  
+
+</table>
